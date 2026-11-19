@@ -1,0 +1,41 @@
+name: Build KENTUYUK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore KENTUYUK.csproj
+
+      - name: Build Release x64
+        run: dotnet build KENTUYUK.csproj --configuration Release --no-restore --verbosity minimal
+
+      - name: Upload build output
+        uses: actions/upload-artifact@v4
+        with:
+          name: KENTUYUK-Release-net48-x64
+          path: |
+            bin/Release/net48/KENTUYUK.exe
+            bin/Release/net48/*.dll
+            bin/Release/net48/*.config
+          if-no-files-found: error
+          retention-days: 14
