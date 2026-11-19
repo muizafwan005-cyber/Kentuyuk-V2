@@ -39,10 +39,6 @@ public class App : Form
 		}
 	}
 
-	private DateTime startDate;
-
-	private int activeDays;
-
 	private int uniqueAutoTabTargetPartyAndGuildHotKeyId;
 
 	private int uniqueAutoTabMonsterHotKeyId;
@@ -285,20 +281,6 @@ public class App : Form
 
 	private CheckBox checkBox46;
 
-	private DateTime GetCurrentTime
-	{
-		get
-		{
-			try
-			{
-				using WebResponse webResponse = WebRequest.Create("http://www.google.com").GetResponse();
-				return DateTime.ParseExact(webResponse.Headers["date"], "ddd, dd MMM yyyy HH:mm:ss 'GMT'", CultureInfo.InvariantCulture.DateTimeFormat, DateTimeStyles.AssumeUniversal);
-			}
-			catch (WebException)
-			{
-				return DateTime.Now;
-			}
-		}
 	}
 
 	private Process currentProcess { get; set; }
@@ -318,8 +300,6 @@ public class App : Form
 	{
 		//IL_009e: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00c1: Unknown result type (might be due to invalid IL or missing references)
-		startDate = DateTime.ParseExact("04/04/2024 00:00:00", "dd/MM/yyyy hh:mm:ss", null);
-		activeDays = 21;
 		uniqueAutoTabTargetPartyAndGuildHotKeyId = 1;
 		uniqueAutoTabMonsterHotKeyId = 2;
 		appVersion = "1.0.3";
