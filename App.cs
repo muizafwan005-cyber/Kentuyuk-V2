@@ -281,8 +281,6 @@ public class App : Form
 
 	private CheckBox checkBox46;
 
-	}
-
 	private Process currentProcess { get; set; }
 
 	private void App_MouseDown(object sender, MouseEventArgs e)
