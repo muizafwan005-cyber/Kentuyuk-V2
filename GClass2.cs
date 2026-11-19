@@ -59,7 +59,7 @@ public class GClass2
 				ManagementObjectCollection val2 = val.Get();
 				try
 				{
-					ManagementObjectEnumerator enumerator = val2.GetEnumerator();
+					ManagementObjectCollection.ManagementObjectEnumerator enumerator = val2.GetEnumerator();
 					try
 					{
 						while (enumerator.MoveNext())
