@@ -1,0 +1,12 @@
+Building the decompiled project
+
+Project: KENTUYUK.csproj
+C# language version: 14.0
+Compiler: .NET 10 SDK or newer, or compatible Visual Studio build tools.
+Target framework: net48
+
+The C# language version determines the compiler requirement. The target framework determines the referenced APIs and runtime; installing a compiler does not change that target. A .NET runtime alone cannot build projects.
+
+Source and project settings are kept as exported by ILSpy. Lowering LangVersion alone cannot translate newer language features and can make valid output fail to build.
+
+Install the target's reference assemblies, SDK workloads and original dependencies before building. For SDK-style projects, run dotnet build in this directory. Recovered projects may still need fixes; source export is not a compilation or behavior check.
