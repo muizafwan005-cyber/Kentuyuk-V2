@@ -819,15 +819,14 @@ public class Synchro : Form
 		((Control)label5).Cursor = Cursors.Hand;
 	}
 
-	protected virtual void Dispose(bool disposing)
+	protected override void Dispose(bool disposing)
 	{
-		if (disposing && icontainer_0 != null)
-		{
-			icontainer_0.Dispose();
-		}
-		((Form)this).Dispose(disposing);
+	    if (disposing && icontainer_0 != null)
+	    {
+	        icontainer_0.Dispose();
+	    }
+	    base.Dispose(disposing);
 	}
-
 	private IntPtr method_8()
 	{
 		return ((Control)this).Handle;
