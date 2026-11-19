@@ -2407,13 +2407,13 @@ public class App : Form
 		gclass6_0.method_38(gclass4_0);
 	}
 
-	protected virtual void Dispose(bool disposing)
+	protected override void Dispose(bool disposing)
 	{
 		if (disposing && icontainer_0 != null)
 		{
 			icontainer_0.Dispose();
 		}
-		((Form)this).Dispose(disposing);
+		base.Dispose(disposing);
 	}
 
 	private IntPtr method_17()
@@ -2517,14 +2517,14 @@ public class App : Form
 		}
 		else if (m.Msg == 132)
 		{
-			((Form)this).WndProc(ref m);
+			base.WndProc(ref m);
 			if ((int)m.Result == 1)
 			{
 				m.Result = (IntPtr)2;
 			}
 			return;
 		}
-		((Form)this).WndProc(ref m);
+		base.WndProc(ref m);
 	}
 
 	private void checkBox45_CheckedChanged(object sender, EventArgs e)
@@ -4409,7 +4409,7 @@ public class App : Form
 		((Control)this).Controls.Add((Control)(object)button1);
 		((Control)this).Controls.Add((Control)(object)panel3);
 		((Control)this).Controls.Add((Control)(object)panel5);
-		((Control)this).DoubleBuffered = true;
+		this.DoubleBuffered = true;
 		((Control)this).ForeColor = Color.White;
 		((Form)this).FormBorderStyle = (FormBorderStyle)0;
 		((Form)this).Icon = (Icon)componentResourceManager.GetObject("$this.Icon");
